@@ -2,9 +2,10 @@
 using namespace std;
 class node
 {
-  int data;
-  node* nxt;
-  node* pre;
+  public:
+    int data;
+    node* nxt;
+    node* pre;
 }*start;
 void createList(int n)
 {
@@ -26,9 +27,11 @@ void createList(int n)
       {
         cout<<"Enter the data in "<<i<<"st node.\n";
         cin>>nxtNode->data;
-        nxtNode->pre=temp;
-        nxtNode->nxt=NULL;
         temp->nxt=nxtNode;
+        if(i==n) start->pre=temp;
+        else nxtNode->pre=temp;
+        if(i==n) nxtNode->nxt=start;
+        else nxtNode->nxt=NULL;
         temp=nxtNode;
       }
     }
@@ -36,9 +39,23 @@ void createList(int n)
 }
 void displayList()
 {
-  int;
+  node *tmpdisp;
+  tmpdisp=start;
+  if (start==NULL) cout<<"Unable to display linked list.\n";
+  else
+  {
+    printf("Data entered in the list is :\n");
+    int i=0;
+    while (tmpdisp!=NULL)
+    {
+      cout<<"The data at "<<i+1<<" node is. "<<tmpdisp->data<<endl;
+      i++;
+      tmpdisp=tmpdisp->nxt;
+      if ((tmpdisp==start) && (i!=0)) break;
+    }
+  }
 }
-void main()
+int main()
 {
   int n,ch=0;
   cout<<"Operations for Linked List are as follows.\n";
