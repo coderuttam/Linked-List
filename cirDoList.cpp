@@ -164,7 +164,7 @@ void delEnd()
   if(start==NULL) cout<<"Linked List not found/created.\n";
   else
   {
-    if ((start->pre=start) && (start->nxt=start)) start=NULL;
+    if ((start->pre==start) && (start->nxt==start)) start=NULL;
     else
     {
       temp=(start->pre)->pre;
@@ -188,11 +188,19 @@ void delBet()
       if (i==pos)
       {
         if ((start->nxt==start) && (start->pre==start)) start=NULL;
+        else if ((start->nxt==start->pre) && (start->pre!=start))
+        {
+          temp=start->nxt;
+          delete start;
+          temp->nxt=temp;
+          temp->pre=temp;
+          start=temp;
+        }
         else
         {
-          temp=tempbet->pre;
-          temp->nxt=tempbet->nxt;
-          (tempbet->nxt)->pre=temp;
+          temp=tempbet;
+          (temp->nxt)->pre=temp->pre;
+          (temp->pre)->nxt=temp->nxt;
           delete tempbet;
         }
         break;
