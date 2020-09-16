@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 class node
 {
@@ -259,7 +259,7 @@ int main()
                         break;
                 case 3: insertBet();
                         break;
-                default:break;
+                default:cout<<"Invalid Choice. Please perform operation again.\n";
               }
               break;
       case 4: cout<<"Enter: \t1 for deleting data at the beginning\n\t2 for deleting data at the end\n\t3 for deleting data in between of the circular linked list.\n";
@@ -272,11 +272,11 @@ int main()
                         break;
                 case 3: delBet();
                         break;
-                default:break;
+                default:cout<<"Invalid Choice. Please perform operation again.\n";
               }
               break;
       case 5: search();
-      default:break;
+      default:cout<<"Invalid Choice. Please perform operation again.\n";
     }
   }
   return 0;
