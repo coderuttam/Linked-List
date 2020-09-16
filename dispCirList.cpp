@@ -34,17 +34,16 @@ void createList(int n)
 }
 void displayList()
 {
-  node *tmpdisp=start,*tmpnxt=tmpdisp->nxt;
+  node *tmpdisp=start;
   if (start==NULL) cout<<"Unable to display linked list. List is either not created or it is currently empty.\n";
   else
   {
     printf("Data entered in the list is :\n");
-    int a=1;
     do
     {
-      cout<<"The data at "<<a<<" node is. "<<tmpdisp->data<<endl;
-      a++;
+      cout<<tmpdisp->data<<" ";
       tmpdisp=tmpdisp->nxt;
+      if (tmpdisp==start) cout<<tmpdisp->data<<endl;
     } while (tmpdisp!=start);
   }
 }
