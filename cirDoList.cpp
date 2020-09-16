@@ -49,8 +49,7 @@ void displayList()
     {
       cout<<"The data at "<<a<<" node is. "<<tmpdisp->data<<endl;
       a++;
-      if (tmpdisp->nxt!=0) tmpdisp=tmpdisp->nxt;
-      else break;
+      tmpdisp=tmpdisp->nxt;
     } while (tmpdisp!=start);
   }
 }
@@ -276,6 +275,7 @@ int main()
               }
               break;
       case 5: search();
+      case 6: break;
       default:cout<<"Invalid Choice. Please perform operation again.\n";
     }
   }
